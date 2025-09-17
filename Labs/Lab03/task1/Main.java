@@ -10,6 +10,7 @@ public class Main{
 
 		System.out.println(s1.toString());
 		System.out.println(s2.toString());
+		System.out.println(s3.toString());
 	}
 
 
