@@ -48,10 +48,6 @@ public class Student{
 	}
 
 
-
-	
-
-
 	//Default Constructor
 	public Student(){
 		this.setId();
@@ -67,7 +63,8 @@ public class Student{
 		this.setAddress(address);
 
 	}
-
+	
+	//Copy Constructor
 	public Student(Student s){
 		this.id = s.id;
 		this.name = s.name;
