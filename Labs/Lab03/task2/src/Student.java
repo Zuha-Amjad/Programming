@@ -2,8 +2,8 @@ public class Student{
 	private String id;
 	private String name;
 	private char gender;
-	private String dateOfBirth;
-	private String address;
+	private Date dateOfBirth;
+	private Address address;
 
 	static int counter = 1;
 
@@ -35,19 +35,19 @@ public class Student{
 	public char getGender(){
 		return this.gender;
 	}
-	public void setDateOfBirth(String dateOfBirth)
+	public void setDateOfBirth(Date dateOfBirth)
 	{
 		this.dateOfBirth = dateOfBirth;
 	}
-	public String getDateOfBirth(){
+	public Date getDateOfBirth(){
 		return this.dateOfBirth;
 	}
 
-	public void setAddress(String address)
+	public void setAddress(Address address)
 	{
 		this.address = address;
 	}
-	public String getAddress(){
+	public Address getAddress(){
 		return this.address;
 	}
 
@@ -58,13 +58,12 @@ public class Student{
 	}
 
 	//Parameterized Constructor
-	public Student(String name, char gender, String dateOfBirth, String address ){
+	public Student(String name, char gender, Date dateOfBirth, Address address ){
 		this.setId();
 		this.setName(name);
 		this.setGender(gender);
 		this.setDateOfBirth(dateOfBirth);
 		this.setAddress(address);
-
 	}
 	
 	//Copy Constructor
@@ -79,7 +78,7 @@ public class Student{
 
 
 	public String toString(){
-		return String.format("%-10s %-15s %-3c %-15s %-30s", this.id, this.name, this.gender, this.dateOfBirth, this.address);
+		return String.format("%-15s %-15s %-3c %-15s %-30s", this.id, this.name, this.gender, this.dateOfBirth, this.address);
 
 	}
 
