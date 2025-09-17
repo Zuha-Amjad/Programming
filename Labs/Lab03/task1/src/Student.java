@@ -4,6 +4,7 @@ public class Student{
 	private char gender;
 	private String dateOfBirth;
 	private String address;
+
 	static int counter = 1;
 
 	//Setters and Getters
@@ -26,7 +27,10 @@ public class Student{
 
 	public void setGender(char gender)
 	{
-		this.gender = gender;
+		if(gender == 'M' || gender == 'F')
+			this.gender = gender;
+		else
+			System.out.println("Error! Invalid gender.");
 	}
 	public char getGender(){
 		return this.gender;
