@@ -54,15 +54,22 @@ public class Game{
 		//Find the winner
 		int roundWinner = getRoundWinner(inPlayCards);
 
-
-		//Add points
 		int points = 10;
-		players[roundWinner].calculateScore(points);
+
+		if(roundWinner <= players.length)
+		{	
+			//Add points
+			players[roundWinner].calculateScore(points);
+		} else{
+			System.out.println("\nIt's a Tie! No points!");
+		}
 
 		//Dislpay Score
 		System.out.println("\n==========Score Board==========");
+		//Call the method to display
 		for(int i = 0; i < players.length; i++)
 			players[i].scoreBoard(i);
+
 
 		//Round added
 		roundCounter++;
@@ -71,26 +78,34 @@ public class Game{
 
 	public void getWinner(){
 		
-
 		//Array to store scores
-		int score[] = new int[3];
+		int score[] = new int[players.length];
 
 		for(int i = 0; i < players.length; i++)
 			score[i] = players[i].getCurrentScore();
 
-		int winner;
 
-		if(score[0] > score[1]  && score[0]  > score[2] )
-				winner = 0;
-		else if(score[1] > score[0]  && score[1]  > score[2] )
-				winner = 1;
-		else if(score[2] > score[1]  && score[2]  > score[1] )
-				winner = 2;
-		else
-				winner = 3;
+		int winner = 0;
+		int highestScore = score[0];
 
-		if(winner == 0 || winner ==1 || winner ==2)
+		for(int i = 0; i < players.length; i++) {
+			if (score[i] > highestScore) {
+
+				highestScore = score[i];
+
+    				//Store the index of winner
+            			winner = i;
+        		} 
+			//Check for tie
+			else if(!(winner == i))
+				if(score[i] == highestScore)
+					winner = players.length + 1;
+		}
+
+		if(winner <= players.length)
+		{
 			System.out.println("\nCongratualtions! PLAYER "+ (winner+1) + " won!");
+		}
 
 		else
 			System.out.println("\nIt's a TIE!");
@@ -103,22 +118,31 @@ public class Game{
 
 
 
-	public int getRoundWinner(Card[] inPlayCards) {
-		
+	public int getRoundWinner(Card[] inPlayCards){
+   		
+		//Array to store values
+		int values[] = new int[players.length];
+
+    		for (int i = 1; i < inPlayCards.length; i++)
+        		values[i] = inPlayCards[i].getRank().getValue();
+
+
+		int winner = 0;
 		//Store 1st value as max
     		int highestValue = inPlayCards[0].getRank().getValue();
 
-   		int winner = 0;
-
-    		for (int i = 1; i < inPlayCards.length; i++) {
-        		int value = inPlayCards[i].getRank().getValue();
-	
-        		if (value > highestValue) {
-            			highestValue = value;
+		
+		for(int i = 0;i < inPlayCards.length; i++){
+       			if(values[i] > highestValue){
+ 				highestValue = values[i];
 
 				//Store the index of winner
             			winner = i;
         		} 
+			//Check for tie
+			else if(!(winner == i))
+				if(values[i] == highestValue)  
+					winner = players.length + 1; 
         	}
 		return winner;
     	}
