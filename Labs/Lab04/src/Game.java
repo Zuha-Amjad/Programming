@@ -39,10 +39,11 @@ public class Game{
 		
 		inPlayCards = new Card[players.length];
 
-		//Loop to through a card
+		//Loop to throw a card for each player
 		for(int i = 0; i < players.length; i++)
 			inPlayCards[i] = players[i].throwCard();
-		
+
+		//Display the thrown Cards
 		System.out.println("\n==========Round " + (roundCounter+1) + "==========");
 		System.out.println("\nCards Thrown:");
 		for(int i = 0; i < players.length; i++){
@@ -50,16 +51,8 @@ public class Game{
 			System.out.println("Player " + (i+1)+ ": " + inPlayCards[i]);
 		}
 
-		int roundWinner;
-
-		//To get winner
-		if(inPlayCards[0].getRank().getValue() > inPlayCards[1].getRank().getValue() && inPlayCards[0].getRank().getValue() > inPlayCards[2].getRank().getValue())
-				roundWinner = 0;
-		else if(inPlayCards[1].getRank().getValue() > inPlayCards[0].getRank().getValue() && inPlayCards[1].getRank().getValue() > inPlayCards[2].getRank().getValue())
-				roundWinner = 1;
-		else	
-				roundWinner = 2;
-		
+		//Find the winner
+		int roundWinner = getRoundWinner(inPlayCards);
 
 
 		//Add points
@@ -67,7 +60,6 @@ public class Game{
 		players[roundWinner].calculateScore(points);
 
 		//Dislpay Score
-
 		System.out.println("\n==========Score Board==========");
 		for(int i = 0; i < players.length; i++)
 			players[i].scoreBoard(i);
@@ -108,5 +100,27 @@ public class Game{
 	public int getRoundCounter(){
 		return roundCounter;
 	}
+
+
+
+	public int getRoundWinner(Card[] inPlayCards) {
+		
+		//Store 1st value as max
+    		int highestValue = inPlayCards[0].getRank().getValue();
+
+   		int winner = 0;
+
+    		for (int i = 1; i < inPlayCards.length; i++) {
+        		int value = inPlayCards[i].getRank().getValue();
+	
+        		if (value > highestValue) {
+            			highestValue = value;
+
+				//Store the index of winner
+            			winner = i;
+        		} 
+        	}
+		return winner;
+    	}
 
 }
