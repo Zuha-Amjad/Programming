@@ -5,7 +5,7 @@ public class Game{
 
 	static int roundCounter = 0;
 
-	int roundWinner;
+	
 
 	public Game(final int noOfPlayers){
 		
@@ -34,6 +34,7 @@ public class Game{
 		
 	}
 
+
 	public void playHand(){
 		
 		inPlayCards = new Card[players.length];
@@ -49,7 +50,7 @@ public class Game{
 			System.out.println("Player " + (i+1)+ ": " + inPlayCards[i]);
 		}
 
-			
+		int roundWinner;
 
 		//To get winner
 		if(inPlayCards[0].getRank().getValue() > inPlayCards[1].getRank().getValue() && inPlayCards[0].getRank().getValue() > inPlayCards[2].getRank().getValue())
@@ -67,7 +68,7 @@ public class Game{
 
 		//Dislpay Score
 
-		System.out.println("==========Score==========");
+		System.out.println("\n==========Score Board==========");
 		for(int i = 0; i < players.length; i++)
 			players[i].scoreBoard(i);
 
@@ -75,8 +76,11 @@ public class Game{
 		roundCounter++;
 	}
 
-	public void getWinner(){
 
+	public void getWinner(){
+		
+
+		//Array to store scores
 		int score[] = new int[3];
 
 		for(int i = 0; i < players.length; i++)
@@ -98,7 +102,7 @@ public class Game{
 
 		else
 			System.out.println("\nIt's a TIE!");
-		
+		System.out.print("GAME OVER! ");
 	}
 	
 	public int getRoundCounter(){

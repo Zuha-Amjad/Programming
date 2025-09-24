@@ -7,7 +7,6 @@ public class Demo{
 	
 		while(Game.roundCounter < 5)
 			g1.playHand();
-	
 
 		g1.getWinner();
 

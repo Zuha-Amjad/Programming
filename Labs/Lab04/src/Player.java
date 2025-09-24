@@ -47,7 +47,7 @@ public class Player{
 		Random rand = new Random();
 
 		// Initialization
-    		Card c = hands[0];
+    		Card c;
     		int i = 0;
 
     		while (true || this.cardsLeft != 0) {   
@@ -57,12 +57,10 @@ public class Player{
             		cardsLeft--;
             		i++;
             		break;
-       		} else {
+       		} else{
             		continue;
 		}
         }
-	
-    
     		return c; 
 	}
 	
