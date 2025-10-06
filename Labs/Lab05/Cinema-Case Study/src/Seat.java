@@ -27,7 +27,7 @@ public class Seat{
 
 	@Override
 	public String toString(){
-		return String.format("%-10s %-10s %,.2f %7b", seatId,seatType, ticketPrice, isAvailable);
+		return String.format("%-10s %-10s %10.2f %7b", seatId,seatType, ticketPrice, isAvailable);
 	}
 
 
