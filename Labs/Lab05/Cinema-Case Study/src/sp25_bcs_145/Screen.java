@@ -1,4 +1,4 @@
-//SP25-BCS-145
+package sp25_bcs_145;
 
 public class Screen{
 
@@ -77,7 +77,7 @@ public class Screen{
 		int row = seatID.getRow();
 		int column = seatID.getColumn();
 
-		if(checkBounds(row, column) && seatID.getType() == seats[row][column].getSeatId().getType())	
+		if(checkBounds(row, column) && seatID.getType() == seats[row-1][column-1].getSeatId().getType())	
 				seats[row-1][column-1].bookSeat(); 
 		else
 			System.out.println(String.format("SORRY! The Requested SeatID %s is Incorrect!\nTry Again!\n", seatID));

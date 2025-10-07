@@ -1,3 +1,5 @@
+package sp25_bcs_145;
+
 public class SeatDemo{
 
 	public static void main(String args[]){

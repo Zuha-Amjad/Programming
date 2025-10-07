@@ -1,3 +1,6 @@
+package sp25_bcs_145;
+
+
 public class CityCinema{
 	String cityName;
 	private Cinema[] cinemas;

@@ -1,3 +1,2 @@
-javac -d out src\Cinema.java src\Screen.java src\Seat.java src\CityCinema.java src\SeatID.java
-javac -cp out CinemaDemo.java
-java -cp out;. CinemaDemo
+javac -d out src/sp25_bcs_145/*.java
+java -cp out sp25_bcs_145.CinemaDemo

@@ -1,3 +1,5 @@
+package sp25_bcs_145;
+
 public class SeatID{
 	private int row;
 	private int column;

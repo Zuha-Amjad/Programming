@@ -1,3 +1,5 @@
+package sp25_bcs_145;
+
 public class Seat{
 
 	private SeatID seatId;
@@ -5,22 +7,27 @@ public class Seat{
 	private double ticketPrice;
 	private boolean isAvailable;
 
-	//For Array Indexes the ID would be different
+	//For Array Indices the ID would be different
 	public Seat(int i, int j, SeatType seatType, double ticketPrice){
-		setSeatId( i+1, j+1, seatType);
-		setSeatType(seatType);	
-		setTicketPrice(ticketPrice);
-		this.isAvailable = true;	
+		this(seatType, ticketPrice);
+
+		//Array Index is 1 less
+		setSeatId( i+1, j+1, seatType);		
 	}
 
-	//For Normal Seat
+
+	//For Normal Seat(Input from user)
 	public Seat(SeatType seatType, int row, int column, double ticketPrice){
-		setSeatId(row, column, seatType);
-		setSeatType(seatType);	
-		setTicketPrice(ticketPrice);
-		this.isAvailable = true;	
+		this(seatType, ticketPrice);
+
+		setSeatId(row, column, seatType);	
 	}
 
+	private Seat(SeatType seatType, double ticketPrice){
+		setSeatType(seatType);	
+		setTicketPrice(ticketPrice);
+		setisAvailabe(true);
+	}
 
 	public Seat(){
 	}

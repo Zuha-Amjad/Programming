@@ -1,3 +1,5 @@
+package sp25_bcs_145;
+
 public class Cinema{
 
 	private String cinemaName;
