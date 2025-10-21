@@ -1,5 +1,7 @@
+package sp25_bcs;
+
 public enum Shape{	
-	RECTANGLE(10, 5), TRAPEZOID (12, 5, 10), L_SHAPE (10, 5, 5, 3);
+	RECTANGLE(15, 7), TRAPEZOID(12, 7, 15), L_SHAPE(10, 5, 5, 3);
 
 	private double width;
 	private double depth;
