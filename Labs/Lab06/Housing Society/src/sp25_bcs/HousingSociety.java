@@ -278,7 +278,7 @@ public class HousingSociety{
 		for (int i = 0; i < array1.length; i++)
 			temp[count++] = array1[i];
     
-		//Add elements from array2 only if not already in temp
+		//Skip the common elements
     		for(int i = 0; i < array2.length; i++){
         		boolean exists = false;
         		for(int j = 0; j < array1.length; j++){
@@ -293,13 +293,13 @@ public class HousingSociety{
 			}
 		}
 
-		//Create final array
-		Plot[] union = new Plot[count];
+		//Final array
+		Plot[] unionArray = new Plot[count];
 		for(int i = 0; i < count; i++){
-			union[i] = temp[i];
+			unionArray[i] = temp[i];
 		}
 
-		return union;
+		return unionArray;
 	}
 
 	public Plot[] intersectionOfArrays(){
